@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 mt-4">
+      <div class="card rounded-lg shadow-sm">
+        <div class="card-header bg-dark text-light">
+          <span class="h5">Login</span>
+        </div>
+        <div class="card-body">
+          <form action="" class="mt-2" [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" placeholder="name@example.com" formControlName="username">
+              <label>Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" placeholder="Password" formControlName="password">
+              <label>Password</label>
+            </div>
+            <hr>
+            <div class="d-grid gap-2 mx-auto mt-2">
+              <button class="btn btn-dark" type="sumbit" [disabled]="loginForm.invalid">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 mt-4">
+      <div class="card rounded-lg shadow-sm">
+        <div class="card-header bg-dark text-light">
+          <span class="h5">Sign Up</span>
+        </div>
+        <div class="card-body">
+          <form action="" class="mt-2" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="Firstname" formControlName="firstname">
+              <label>Firstname</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="Middlename" formControlName="middlename">
+              <label>Middlename</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="Lastname" formControlName="lastname">
+              <label>Lastname</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" placeholder="Email" formControlName="email">
+              <label>Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" placeholder="Password" formControlName="password">
+              <label>Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
+              <label>Confirm Password</label>
+            </div>
+            <hr>
+            <div class="d-grid gap-2 mx-auto mt-2">
+              <button class="btn btn-dark" type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+            </div>
+          </form>
+          <hr>
+          <small class="text-muted">By clicking Sign up, you agree to the <span data-bs-toggle="modal" data-bs-target="#exampleModal">terms of use</span>.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 mt-4">
+      <div class="card rounded-lg shadow-sm">
+        <div class="card-header bg-dark text-light">
+          <span class="h5">Restore</span>
+        </div>
+        <div class="card-body">
+          <form action="" class="mt-2" [formGroup]="restoreForm" (ngSubmit)="restore()">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" placeholder="name@example.com" formControlName="username">
+              <label>Email address</label>
+            </div>
+            <hr>
+            <div class="d-grid gap-2 mx-auto mt-2">
+              <button class="btn btn-dark" type="sumbit" [disabled]="restoreForm.invalid">Restore</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Terms of use</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aspernatur assumenda at commodi consectetur deleniti dicta dolor eos error esse eum eveniet fugit illo itaque, laudantium libero, natus obcaecati praesentium quibusdam quo quod sapiente sint suscipit totam voluptas voluptates! Asperiores aspernatur autem consectetur debitis dignissimos, dolores minus molestias mollitia perferendis. Asperiores beatae consequatur dignissimos dolores ea error ex excepturi fuga, itaque laboriosam maxime neque pariatur rem reprehenderit saepe sit tenetur? Accusamus, ad adipisci alias aliquam consequatur deleniti, dicta dolorem dolores enim hic illo illum inventore itaque iure labore laboriosam libero neque nobis numquam perspiciatis porro possimus quod quos reiciendis similique tempora voluptas. Aliquam aperiam, cumque eos ex ipsum quasi recusandae ut? Atque consequatur exercitationem, impedit laudantium natus omnis quasi quis voluptas? Id odit unde vel voluptatem! Aspernatur beatae deleniti dignissimos distinctio dolore dolores ea earum eligendi error est et eveniet ex exercitationem expedita fugit impedit, incidunt ipsam maiores minima modi molestias necessitatibus nisi nobis odit praesentium quae qui sed, sequi tempore temporibus tenetur ut veniam vero. Accusantium adipisci animi aspernatur atque commodi culpa deserunt distinctio, dolor dolorem dolores ea eaque facilis fugiat inventore ipsa ipsam libero molestiae natus perferendis perspiciatis provident quas quidem recusandae tempore temporibus veritatis, voluptas, voluptatum.
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,192 @@
+<div class="row">
+  <div class="col-sm-4 mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-light h5">
+        Spending monthly plan
+        <mat-icon>calendar_month</mat-icon>
+      </div>
+      <div class="card-body">
+               <!-- <span class="h2" *ngIf="!monthPlan || monthPlan.length == 0">No data</span> -->
+               <span class="h2"> {{monthPlan[monthPlan.length - 1].amount - (summIncome - summconsumption) * -1 | currency}} / </span>
+               <span class="h2"> {{monthPlan[monthPlan.length - 1].amount | currency}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-2 mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-light h5">
+        Difference
+        <mat-icon>account_balance_wallet</mat-icon>
+      </div>
+      <div class="card-body">
+        <!--        <span class="h2" *ngIf="!monthPlan || monthPlan.length == 0">No data</span>-->
+        <span class="h2">{{summIncome - summconsumption | currency}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3 mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-light h5">
+        Income
+        <mat-icon style="color: greenyellow">trending_up</mat-icon>
+      </div>
+      <div class="card-body">
+        <!--        <span class="h2" *ngIf="!monthPlan && monthPlan.length == 0">No data</span>-->
+        <span class="h2">{{summIncome | currency}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3 mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-light h5">
+        Сonsumption
+        <mat-icon style="color: red">trending_down</mat-icon>
+      </div>
+      <div class="card-body">
+        <!--        <span class="h2" *ngIf="!monthPlan || monthPlan.length == 0">No data</span>-->
+        <span class="h2">{{summconsumption | currency}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-light h5">
+        Spending change monthly plan
+        <mat-icon>price_change</mat-icon>
+      </div>
+      <div class="card-body">
+        <form action="" [formGroup]="monthlyPlanForm" (ngSubmit)="createMonthPlan()">
+          <input type="text" class="form-control w-25" placeholder="Amount" aria-label="Amount"
+                 formControlName="amount">
+          <button type="submit" class="btn btn-primary" [disabled]="monthlyPlanForm.invalid">Update</button>
+        </form>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="row g-12 align-items-center">
+          <div class="col-md-8">
+            <!--            <span *ngIf="!monthPlan || monthPlan.length == 0">You need set month plan</span>-->
+            <span *ngIf="monthPlan && monthPlan.length != 0">
+               Last updated: {{monthPlan[monthPlan.length - 1].createdDate | date  :'full'}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-8 mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-light h5">
+        Add finance record
+        <mat-icon>request_quote</mat-icon>
+      </div>
+      <div class="card-body">
+        <form action="" class="row g-2" [formGroup]="addRecordForm" (ngSubmit)="addRecord()">
+          <div class="col-md-5">
+            <input type="email" class="form-control" placeholder="Amount" formControlName="amount">
+          </div>
+          <div class="col-md-4">
+            <select class="form-select" aria-label="Floating label select example" formControlName="type">
+              <option value="1">Сonsumption</option>
+              <option value="0">Income</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary w-100" [disabled]="addRecordForm.invalid">Add record</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card mt-4 shadow-sm">
+  <div class="card-header bg-dark text-light h5">
+    {{title.text}}
+    <mat-icon>ssid_chart</mat-icon>
+  </div>
+  <div class="card-body">
+    <div class="flex flex-col flex-auto h-80">
+      <apx-chart
+        [series]="seriesconsumption"
+        [chart]="chart"
+        [dataLabels]="dataLabels"
+        [markers]="markers"
+        [fill]="fill"
+        [yaxis]="yaxis"
+        [xaxis]="xaxis"
+        [tooltip]="tooltip"
+        [autoUpdateSeries]="true"
+      ></apx-chart>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <div class="row g-12 align-items-center">
+      <div class="col-md-8">
+        Last updated: {{lastUpdatedTime | date  :'short'}}
+      </div>
+      <div class="col-md-4">
+        <form class="row g-2" [formGroup]="updateForm" (ngSubmit)="updateAll()">
+          <div class="col-md-8">
+            <select class="form-select" aria-label="Floating label select example" formControlName="type">
+              <option value="1">Last month</option>
+              <option value="0">Last year</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-primary w-100" type="submit">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-4 shadow-sm">
+  <div class="card-header bg-dark text-light h5">
+    {{titleIncome.text}}
+    <mat-icon>ssid_chart</mat-icon>
+  </div>
+  <div class="card-body">
+    <div class="flex flex-col flex-auto h-80">
+      <apx-chart
+        [series]="seriesIncome"
+        [chart]="chart"
+        [dataLabels]="dataLabels"
+        [markers]="markers"
+        [fill]="fill"
+        [yaxis]="yaxis"
+        [xaxis]="xaxis"
+        [tooltip]="tooltip"
+        [autoUpdateSeries]="true"
+      ></apx-chart>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <div class="row g-12 align-items-center">
+      <div class="col-md-8">
+        Last updated: {{lastUpdatedTime | date  :'short'}}
+      </div>
+      <div class="col-md-4">
+        <form class="row g-2" [formGroup]="updateForm" (ngSubmit)="updateAll()">
+          <div class="col-md-8">
+            <select class="form-select" aria-label="Floating label select example" formControlName="type">
+              <option value="1">Last month</option>
+              <option value="0">Last year</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-primary w-100" type="submit">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

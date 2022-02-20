@@ -1,0 +1,22 @@
+div.progress{
+  border-radius: 0px;
+}
+
+.nav-item.separator{
+  width: 4.5px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background: #6c757d;
+  border-radius: 5px;
+  margin: 0 5px 0 5px;
+}
+
+div.container{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}

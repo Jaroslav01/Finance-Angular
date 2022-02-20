@@ -1,0 +1,102 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  box-sizing: content-box;
+  background-color: #f5f5f5;
+  background-image: url("/assets/img/background7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fade {
+  transition: opacity .15s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+/*.shadow-sm{*/
+/*  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1) !important;*/
+/*  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color) !important;*/
+/*  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)!important;*/
+/*}*/
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 1rem;
+  outline: 0;
+}
+
+input.ng-invalid.ng-touched{
+  /*border: 1px solid red;*/
+  border-right: 4px solid red;
+  border-radius: 4px;
+}
+
+input.ng-invalid.ng-dirty{
+  /*border: 1px solid red;*/
+  border-right: 4px solid red;
+  border-radius: 4px;
+}
+
+.rounded-4{
+  border-radius: 1rem!important;
+}
+
+.rounded-t-4{
+  border-top-left-radius: 1rem!important;
+  border-top-right-radius: 1rem!important;
+}
+
+div.card{
+  border-radius: 1rem!important;
+  border: none;
+}
+
+div.card .card-header{
+  border-top-left-radius: 1rem!important;
+  border-top-right-radius: 1rem!important;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+}
+
+div.card .card-footer{
+  padding: 12px;
+}
+
+.card-footer:last-child {
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  /*border-radius: 10px;*/
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}
