@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "http://localhost:8080" //"https://api.finance.java.yushchenko.site"
+  apiUrl: "https://api.wspa.yushchenko.site" //"https://api.finance.java.yushchenko.site"
 };
